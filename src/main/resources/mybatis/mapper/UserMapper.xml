@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.demo.dao.UserMapper">
+    <insert id="saveUser" parameterType="com.example.demo.model.User">
+        INSERT INTO `demo`.`user`(`user_id`, `name`, `user_type`, `org_code`, `org_name`, `status`, `created_by`,
+                                  `created_date`, `last_updated_by`, `last_updated_date`)
+                VALUES (
+                '2',
+        <choose>
+            <when test="name != null">
+                #{name},
+            </when>
+            <otherwise>
+                'hao',
+            </otherwise>
+        </choose>
+        'STAFF',
+        '204',
+        '广东分公司',
+        '1',
+        NULL,
+        NULL,
+        NULL,
+        NULL
+                )
+    </insert>
+    <select id="findUserById" resultType="com.example.demo.model.User">
+    select * from user where user.user_id = #{userId}
+    </select>
+</mapper>

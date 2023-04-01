@@ -1,0 +1,31 @@
+#springframework.boot.autoconfigure.web.ServerProperties.Servlet.contextPath
+server:
+  port: 8080
+  servlet:
+    context-path: /demo
+
+#org.springframework.boot.autoconfigure.jdbc.DataSourceProperties
+spring:
+  datasource:
+    demo:
+      name: demo
+      url: jdbc:mysql://localhost:3306/demo?useUnicode=true&characterEncoding=UTF8&serverTimezone=UTC&useSSL=false
+      type: com.alibaba.druid.pool.DruidDataSource
+      username: root
+      password: root
+      driver-class-name: com.mysql.jdbc.Driver
+      filters: stat
+      maxActive: 10
+      initialSize: 5
+      maxWait: 60000
+      minIdle: 1
+      timeBetweenEvictionRunsMillis: 60000
+      minEvictableIdleTimeMillis: 300000
+      validationQuery: select 1
+      testWhileIdle: true
+      testOnBorrow: false
+      testOnReturn: false
+      poolPreparedStatements: false
+      maxPoolPreparedStatementPerConnectionSize: 10
+      maxOpenPreparedStatements: 10
+
